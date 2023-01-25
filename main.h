@@ -1,21 +1,27 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+##ifndef MAIN_H
+#define MAIN_H
+
 #include <stdarg.h>
+#include <unistd.h>
 
 /**
- * print struct - a structure for printing different types
- * @t: type to print
- * @f: function to print
+ * struct funcs - encapsulates a function pointer with a string pointer.
+ * @ch: character to compare.
+ * @f: function pointer that handles a  given conversion.
  */
 
-typedef struct print
+typedef struct funcs
 {
-	char *t;
+	char *ch;
 	int (*f)(va_list);
-} print_t;
+} func_t;
 
-int _putchar(char c);
 int _printf(const char *format, ...);
+int (*check_specifier(const char *))(va_list);
+int print_str(va_list);
+int _putchar(int c);
+int print_d(va_list types);
+int print_c(va_list types);
+int print_i(va_list types);
 
-
-#endif
+#endif /* MAIN_H */
