@@ -10,7 +10,6 @@
 int print_c(va_list types)
 {
 	char ch;
-	int i = 0;
 
 	ch = va_arg(types, int);
 
