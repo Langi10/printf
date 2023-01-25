@@ -2,22 +2,78 @@
 
 /**
  * print_str - prints a string
- * @specifier: valist.
+ * @types: valist.
  *
  * Return: Number of characters printed to the output.
  */
 
-int print_str(va_list specifier)
+int print_str(va_list types)
 {
-	char *name = va_arg(specifier, char *);
+	char *str;
 	int i = 0;
 
-	if (name)
-	{
-		while (name[i])
-			write(1, name + i++, 1);
+	str = va_arg(types, char *);
+	if (str == NULL)
+		str = "(null)";
 
-		return (i);
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+
+	return (i);
+}
+
+/**
+ * find_hex - find the hexadecimal expression for non printable characters
+ * @c: non printable char
+ * Return: i
+ */
+int find_hex(char c)
+{
+	int i;
+	char dif = 7;
+	char hex[2];
+
+	hex[0] = c / 16;
+	hex[1] = c % 16;
+	for (i = 0; i < 2; i++)
+	{
+		if (hex[i] >= 10)
+			_putchar('0' + dif + hex[i]);
+		else
+			_putchar('0' + hex[i]);
 	}
-	return (-1);
+	return (i);
+}
+
+/**
+ * print_S - prints a string and non printable characters
+ * are changed for \x
+ * @types: args
+ * Return: len
+ */
+
+int print_S(va_list types)
+{
+	char *str;
+	int i, len = 0;
+
+	str = va_arg(types, char *);
+	if (str == NULL)
+		str = "(null)";
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if ((str[i] > 0 && str[i] < 32) || (str[i] >= 127))
+		{
+			_putchar('\\');
+			_putchar('x');
+			len += 2 + find_hex(str[i]);
+		}
+		else
+		{
+			_putchar(str[i]);
+			len++;
+		}
+	} /* end for */
+	return (len);
 }

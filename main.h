@@ -23,5 +23,7 @@ int _putchar(int c);
 int print_d(va_list types);
 int print_c(va_list types);
 int print_i(va_list types);
+int find_hex(char c);
+int print_S(va_list types);
 
 #endif /* MAIN_H */
