@@ -9,13 +9,6 @@
 
 int print_c(va_list types)
 {
-	char ch;
-
-	ch = va_arg(types, int);
-
-	if (ch)
-	{
-		return (write(1, &ch, 1));
-	}
-	return (0);
+	_putchar(va_arg(types, int));
+	return (1);
 }
