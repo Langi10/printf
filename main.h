@@ -31,4 +31,4 @@ int print_x(va_list types);
 int print_X(va_list types);
 int print_b(va_list types);
 
-#endif /* MAIN_H */
+#endif /* MAIN_H_ */
