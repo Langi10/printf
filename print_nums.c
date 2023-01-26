@@ -50,7 +50,7 @@ int print_d(va_list types)
  * Return: number of characters printed
  */
 
-int print_iu(va_list types)
+int print_ui(va_list types)
 {
 	unsigned int number = va_arg(types, unsigned int);
 	int last_digit = number % 10, num = number / 10;
