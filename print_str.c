@@ -3,7 +3,7 @@
 /**
  * print_str - prints a string
  * @types: valist.
-
+ *
  * Return: Number of characters printed to the output.
  */
 
