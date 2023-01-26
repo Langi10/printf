@@ -7,7 +7,7 @@
  * Return: number of characters printed.
  */
 
-int print_c(va_list types
+int print_c(va_list types)
 {
 	_putchar(va_arg(types, int));
 	return (1);
