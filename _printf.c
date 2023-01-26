@@ -13,9 +13,9 @@ int  _printf(const char *format, ...)
 	int i = 0, cnt = 0, flag, k;
 	va_list types;
 	func_t myfuncs[] = {{"c", print_c}, {"s", print_str}, {"d", print_d},
-			    {"i", print_i},/* {"b", print_b}, {"u", print_ui},
+			    {"i", print_i}, {"b", print_b}, /*{"u", print_ui},*/
 			    {"o", print_o}, {"x", print_x}, {"X", print_X},
-			    {"S", print_S},*/ {NULL, NULL}};
+			    {"S", print_S}, {NULL, NULL}};
 
 	va_start(types, format);
 
