@@ -45,7 +45,7 @@ int print_d(va_list types)
 }
 
 /**
- * print_iu - prints unsigned integer
+ * print_ui - prints unsigned integer
  * @types: args
  * Return: number of characters printed
  */
