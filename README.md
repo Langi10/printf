@@ -1,4 +1,5 @@
 Printf Team Project
+Members: Omboke & Nyaberi
 
 Authorized functions and macros
 	   write (man 2 write)
