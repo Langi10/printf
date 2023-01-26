@@ -10,38 +10,41 @@
 
 int  _printf(const char *format, ...)
 {
-	int i = 0, j = 0;
+	int i = 0, cnt = 0, flag, k;
 	va_list types;
-	int (*f)(va_list);
+	func_t myfuncs[] = {{"c", print_c}, {"s", print_str}, {"d", print_d},
+			    {"i", print_i},/* {"b", print_b}, {"u", print_ui},
+			    {"o", print_o}, {"x", print_x}, {"X", print_X},
+			    {"S", print_S},*/ {NULL, NULL}};
 
 	va_start(types, format);
-	if (format)
+
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+
+	while (format != NULL && format[i] != '\0')
 	{
-		while (format[i] != '\0')
+		if (format[i] == '%' && format[i + 1] == '%')
+			_putchar(format[i + 1]), i++, cnt++;
+		else if (format[i] == '%' && format[i + 1] != '%')
 		{
-			if (format[i] != '%')
+			flag = 0, k = 0;
+			for (k = 0; myfuncs[k].ch != NULL; k++)
 			{
-				i += write(1, format + i, 1);
-				j++;
-				continue;
-			}
-			if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != '\0'))
-			{
-				f = check_specifier(format + i + 1);
-				if (f != NULL)
+				if (myfuncs[k].ch[0] == format[i + 1])
 				{
-					j += f(types);
-					i += 2;
-					continue;
+					cnt += myfuncs[k].f(types);
+					flag = 1, i++;
+					break;
 				}
 			}
-			if (format[i] == '%' && format[i + 1] == '%')
-			{
-				j += _putchar('%'), i += 2;
-				continue;
-			}
+			if (!flag)
+				_putchar(format[i]), cnt++;
 		}
-		return (j);
+		else
+			cnt += _putchar(format[i]);
+		i++;
 	}
-	return (-1);
+	va_end(types);
+	return (cnt);
 }
