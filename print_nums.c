@@ -14,7 +14,7 @@ int print_i(va_list args)
 	count = 0;
 	n = va_arg(args, int);
 	if (n < 0)
-		absolute = (n * -1);
+		absolute = (n * -1), count += _putchar('-');
 
 	else
 		absolute = n;
