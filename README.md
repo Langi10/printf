@@ -419,5 +419,5 @@ alex@ubuntu:~/c/printf$
   </div>
 
 
-## Author
+## Authors
 * **Mayaka Nyaberi** - [The_ Quadzilla](https://github.com/nyaberi-mayaka) && **Abdulrahman Omboke** - [Langi](https://github.com/Langi10)
