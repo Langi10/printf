@@ -417,3 +417,7 @@ alex@ubuntu:~/c/printf$
   <div class="panel-body">    
     <p>All the above options work well together.</p>
   </div>
+
+
+## Author
+* **Mayaka Nyaberi** - [The_ Quadzilla](https://github.com/nyaberi-mayaka) && **Abdulrahman Omboke** - [Langi](https://github.com/Langi10)
